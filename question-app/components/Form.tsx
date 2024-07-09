@@ -1,5 +1,5 @@
 import type { Question } from '@/types';
-import { useReducer, useRef, useState, type RefObject } from 'react';
+import { useState } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { Text, TextInput, Button } from 'react-native-paper';
 
