@@ -1,15 +1,15 @@
-import { Text, View } from "react-native";
+import { QuestionScreen } from '@/components/QuestionScreen';
+import { Text, View } from 'react-native';
 
 export default function Index() {
   return (
     <View
       style={{
         flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
+        padding: 10,
       }}
     >
-      <Text>Edit app/index.tsx to edit this screen.</Text>
+      <QuestionScreen />
     </View>
   );
 }
