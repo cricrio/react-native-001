@@ -1,12 +1,24 @@
+import { TextsProvider } from '@/contexts/textProvider';
 import { Stack } from 'expo-router';
-import { PaperProvider } from 'react-native-paper';
+import { PaperProvider, Text } from 'react-native-paper';
 
 export default function RootLayout() {
   return (
-    <PaperProvider>
-      <Stack>
-        <Stack.Screen name='index' />
-      </Stack>
-    </PaperProvider>
+    <TextsProvider initialTexts={['bloa', 'bloa']}>
+      <PaperProvider>
+        <Stack
+          screenOptions={{
+            header: () => <Text variant='titleLarge'>Demo</Text>,
+            contentStyle: {
+              padding: 20,
+            },
+          }}
+        >
+          <Stack.Screen name='index' />
+          <Stack.Screen name='bla' />
+          <Stack.Screen name='test/[id]' />
+        </Stack>
+      </PaperProvider>
+    </TextsProvider>
   );
 }
