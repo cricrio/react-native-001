@@ -1,5 +1,5 @@
-import { QuestionScreen } from '@/components/QuestionScreen';
-import { Text, View } from 'react-native';
+import { QuestionList } from '@/components/List';
+import { View } from 'react-native';
 
 export default function Index() {
   return (
@@ -9,7 +9,7 @@ export default function Index() {
         padding: 10,
       }}
     >
-      <QuestionScreen />
+      <QuestionList />
     </View>
   );
 }

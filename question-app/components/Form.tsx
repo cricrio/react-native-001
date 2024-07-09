@@ -4,12 +4,18 @@ import { View, StyleSheet } from 'react-native';
 import { Text, TextInput, Button } from 'react-native-paper';
 
 interface Props {
-  onAdd: (question: Question) => void;
+  onSubmit: (question: Omit<Question, 'id'>) => void;
+  question?: Omit<Question, 'id'>;
+  role: 'edit' | 'add';
 }
 
-export const QuestionForm = ({ onAdd }: Props) => {
-  const [question, setQuestion] = useState('');
-  const [response, setResponse] = useState('');
+export const QuestionForm = ({
+  onSubmit,
+  role,
+  question: initialQuestion,
+}: Props) => {
+  const [question, setQuestion] = useState(initialQuestion?.question ?? '');
+  const [response, setResponse] = useState(initialQuestion?.response ?? '');
 
   return (
     <View style={styles.container}>
@@ -18,13 +24,14 @@ export const QuestionForm = ({ onAdd }: Props) => {
       <Text variant='labelMedium'>Response</Text>
       <TextInput value={response} onChangeText={setResponse} />
       <Button
+        disabled={!(question && response)}
         onPress={() => {
-          onAdd({ question, response });
+          onSubmit({ question, response });
           setQuestion('');
           setResponse('');
         }}
       >
-        Add question
+        {role === 'edit' ? 'Edit question' : 'Add question'}
       </Button>
     </View>
   );
