@@ -1,6 +1,5 @@
 import { GOOGLE_BOOK_API_URL } from '@/constants/api';
 import type { Book, GoogleBook } from '@/types';
-import { useEffect, useState } from 'react';
 import { useFetch } from './useFetch';
 import { parseBook } from './utils';
 

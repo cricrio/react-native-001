@@ -27,7 +27,7 @@ export default function BookDetail() {
     return <ActivityIndicator animating />;
   }
   return (
-    <ScrollView style={{ flex: 1, height: 400 }}>
+    <ScrollView style={{ flex: 1 }}>
       <Image
         source={{ uri: book?.images.cover ?? book?.images?.thumbnail }}
         width={200}
