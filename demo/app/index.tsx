@@ -1,10 +1,16 @@
 import { useTexts } from '@/contexts/textProvider';
-import { Link } from 'expo-router';
+import { Link, useLocalSearchParams, useRouter } from 'expo-router';
 import { Text, TextInput, View } from 'react-native';
 import { Button } from 'react-native-paper';
 
 export default function Index() {
   const [_, add] = useTexts();
+  const { query, machin } = useLocalSearchParams<{
+    query: string;
+    machin: string;
+  }>();
+  const router = useRouter();
+
   return (
     <View
       style={{
@@ -17,7 +23,17 @@ export default function Index() {
       <Link href={'/bla'}>Go to Bla</Link>
       <Link href={'/test/ototto'}>Go to ototto</Link>
       <Link href={'/test/blaal'}>Go to blaal</Link>
+      <Link href={'/?query=ahahahhahah'}>Go to search params</Link>
+      <Link href={'/camera'}>Go to camera</Link>
       <Button onPress={() => add('1 2 3 4')}>Tape me </Button>
+      <TextInput
+        value={query ?? ''}
+        onChangeText={(text) => router.setParams({ query: text, machin: '' })}
+      ></TextInput>
+      <TextInput
+        value={machin ?? ''}
+        onChangeText={(text) => router.setParams({ machin: text })}
+      ></TextInput>
     </View>
   );
 }
