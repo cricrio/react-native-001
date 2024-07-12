@@ -6,7 +6,6 @@ test('Should display the title', () => {
     <BookCard book={{ title: 'Harry Potter', id: '02', images: {} }} />
   );
 
-  const image = 
   const title = getByText('Harry Potter');
   expect(title).toBeTruthy();
 });
