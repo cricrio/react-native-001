@@ -1,3 +1,4 @@
+import { BarCodeScanner } from '@/components/BarCodeScanner';
 import {
   CameraView,
   useCameraPermissions,
@@ -12,39 +13,6 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-
-const BarCodeScanner = ({
-  onScan,
-  children,
-}: {
-  onScan: (code: BarcodeScanningResult) => void;
-  children: React.ReactNode;
-}) => {
-  return (
-    <CameraView
-      style={styles.camera}
-      onBarcodeScanned={(result: BarcodeScanningResult) => {
-        onScan(result);
-      }}
-      barcodeScannerSettings={{
-        barcodeTypes: [
-          'qr',
-          'pdf417',
-          'ean13',
-          'code128',
-          'code39',
-          'upc_a',
-          'upc_e',
-          'ean8',
-          'itf14',
-          'codabar',
-        ],
-      }}
-    >
-      {children}
-    </CameraView>
-  );
-};
 
 export default function App() {
   const [barCode, setBarCode] = useState('');

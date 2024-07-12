@@ -24,7 +24,8 @@ export default function Index() {
       <Link href={'/test/ototto'}>Go to ototto</Link>
       <Link href={'/test/blaal'}>Go to blaal</Link>
       <Link href={'/?query=ahahahhahah'}>Go to search params</Link>
-      <Link href={'/camera'}>Go to camera</Link>
+      <Link href={'/barcode-demo'}>Go to barcode demo</Link>
+      <Link href={'/camera-demo'}>Go to camera demo</Link>
       <Button onPress={() => add('1 2 3 4')}>Tape me </Button>
       <TextInput
         value={query ?? ''}

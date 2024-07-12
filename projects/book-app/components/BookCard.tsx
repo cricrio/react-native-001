@@ -4,7 +4,7 @@ import { View } from 'react-native';
 import { Card, Text } from 'react-native-paper';
 
 interface Props {
-  book: Book;
+  book: Pick<Book, 'title' | 'images' | 'id'>;
 }
 
 export function BookCard({ book }: Props) {
