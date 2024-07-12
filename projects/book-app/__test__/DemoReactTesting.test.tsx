@@ -54,6 +54,7 @@ test('Should display the correct text after the user has type', async () => {
 
 test('Button should be disabled', async () => {
   const user = userEvent.setup();
+  //Mocker la function
   const onSubmit = jest.fn(() => {});
   render(
     <TestComponentDemo name='Martin' onSubmit={onSubmit}></TestComponentDemo>
